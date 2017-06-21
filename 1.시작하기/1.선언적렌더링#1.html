@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>선언적 렌더링</title>
+    </head>
+    <body>
+        <div id="app">
+            {{ message }}
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: '안녕하세요 Vue!'
+                }
+            })
+        </script>
+    </body>
+</html>

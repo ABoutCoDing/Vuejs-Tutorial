@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>슬롯을 사용한 컨텐츠 배포 #범위 컴파일</title>
+    </head>
+    <body>
+
+        <div id="example-12">
+            <child-component></child-component>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('child-component', {
+                // 이제 작동합니다. 올바른 위치에 놓여 있습니다.
+                template: '<div v-show="someChildProperty">Child</div>',
+                data: function () {
+                    return {
+                    someChildProperty: true
+                    }
+                }
+            })
+            var example12 = new Vue({
+                el: "#example-12",
+                data: {
+                }
+            })
+        </script>
+    </body>
+</html>

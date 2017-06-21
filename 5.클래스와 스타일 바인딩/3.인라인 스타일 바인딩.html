@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>인라인 스타일 바인딩</title>
+
+        <style>
+            .active { color:blue; }
+            .text-danger { color:red; }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">객체구문1</div>
+            <div v-bind:style="styleObject">객체구문2</div>
+            
+            <div v-bind:style="[activeColor, fontSize]">배열구문</div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var vm3 = new Vue({
+                el: "#app",
+                data: {
+                    activeColor: "red",
+                    fontSize: 30,
+                    
+                    styleObject: {
+                        color: "red",
+                        fontSize: "13px"
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML 클래스 바인딩하기</title>
+
+        <style>
+            .active { color:blue; }
+            .text-danger { color:red; }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="static"
+                v-bind:class="{ active: isActive, 'text-danger': hasError }">test
+            </div>
+            <!-- <div class='static active text-danger'>test</div> -->
+            
+            <div v-bind:class="classObject">test2</div>
+            
+            <!-- 배열 구문 -->
+            <div v-bind:class="[activeClass, errorClass]"></div>
+                <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+
+                <div v-bind:class="[{ active: isActive }, errorClass]">
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: { // 객체구문 
+                    isActive: true,
+                    hasError: false,
+
+                    activeClass: 'active',
+                    errorClass: 'text-danger'
+                },
+                // classObject: {
+                //     active: true,
+                //     'text-danger': false
+                // },
+                computed: {
+                    classObject: function () {
+                        return {
+                            active: this.isActive && !this.error,
+                            'text-danger': this.error && this.error.type === 'fatal',
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>라디오</title>
+    </head>
+    <body>
+        <div id="example-5">
+            <select v-model="selected">
+                <option disabled value="">Please select one</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>선택함: {{ selected }}</span>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            new Vue({
+                el: '#example-5',
+                data: {
+                    selected: []
+                }
+            })
+        </script>
+    </body>
+</html>

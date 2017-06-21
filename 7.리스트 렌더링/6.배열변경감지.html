@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>배열변경감지</title>
+    </head>
+    <body>
+        <div id="example-5">
+            <div v-for="item in items" :key="item.id">
+                {{ item.message }}
+                <!-- content -->
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            var example5 = new Vue({
+                el: '#example-5',
+                data: {
+                    items: [
+                        {id: '1', message: 'Foo' },
+                        {id: '2', message: 'Bar' },
+                        {id: '3', message: 'FooFoo' },
+                        {id: '4', message: 'BarBar' }
+                    ]
+                }  
+            })
+
+            // 변이 메서드 
+            example5.items.push({id: '3', message: 'true' })
+
+            // 배열 대체 
+            example5.items = example5.items.filter(function (item) {  // 매칭되는 오브젝트를 가져온다.
+                return item.message.match(/Bar/)
+            })
+            console.log('matchItems : ', example5.items)
+
+
+            // 주의사항 Vue.set
+            var indexOfItem = 1
+            var newValue = 5
+            Vue.set(example5.items, indexOfItem, newValue)
+            // Array.prototype.splice
+            example5.items.splice(indexOfItem, 1, "4")  
+            console.log(example5.items)
+
+
+        </script>
+    </body>
+</html>

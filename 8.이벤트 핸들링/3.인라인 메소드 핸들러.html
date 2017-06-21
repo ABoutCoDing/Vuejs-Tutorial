@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>인라인 메소드 핸들러</title>
+    </head>
+    <body>
+        <div id="example-3">
+            <button v-on:click="say('hi')">Say hi</button>
+            <button v-on:click="say('what')">Say what</button>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 인라인 메소드 핸들러 #1
+            new Vue({
+                el: '#example-3',
+                methods: {
+                    say: function (message) {
+                        alert(message)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

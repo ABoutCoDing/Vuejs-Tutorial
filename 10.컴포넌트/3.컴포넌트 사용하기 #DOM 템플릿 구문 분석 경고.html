@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>컴포넌트 사용하기 #DOM 템플릿 구문 분석 경고</title>
+    </head>
+    <body>
+        <div id="example-2">
+            <!-- 문제가 발생할 수 있습니다. -->
+            <!-- 
+                <table>
+                    <my-row></my-row>
+                </table> 
+            -->
+            <table>
+                <tr is="my-row"></tr>
+            </table>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('my-row', {
+                template: '<td>my row</td>'
+            })
+            new Vue({
+                el: '#example-2'
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>수식어 키목록</title>
+    </head>
+    <body>
+        <div id="example-7">
+            <!-- Alt + C -->
+            <input @keyup.alt.67="clear">
+            <!-- Alt + Click -->
+            <div @click.alt="doSomething">Do something</div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 수식어 키 목록
+            // .ctrl
+            // .alt
+            // .shift
+            // .meta
+            new Vue({
+                el: '#example-7',
+                methods: {
+                    clear: function(){
+                        console.log('clear')
+                    },
+                    doSomething: function(){
+                        console.log('doSomething')
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

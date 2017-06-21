@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-if</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- <template>에 v-if을 갖는 조건부 그룹 만들기 -->
+            <template v-if="ok">
+                <h1>Title</h1>
+                <p>Paragraph 1</p>
+                <p>Paragraph 2</p>
+            </template>
+            
+            <!-- v-else -->
+            <div v-if="Math.random() > 0.5">
+                이제 나를 볼 수 있어요
+            </div>
+            <div v-else>
+                이제는 안보입니다
+            </div>
+
+            <!-- v-else-if -->
+            <div v-if="type === 'A'">
+                A
+            </div>
+            <div v-else-if="type === 'B'">
+                B
+            </div>
+            <div v-else-if="type === 'C'">
+                C
+            </div>
+            <div v-else>
+                Not A/B/C
+            </div>
+                        
+            <div>
+                <!-- key를 이용한 재사용 가능한 엘리먼트 제어 -->
+                <template v-if="loginType === 'username'">
+                <label>사용자 이름</label>
+                <input placeholder="사용자 이름을 입력하세요" key="username-input">
+                </template>
+                <template v-else>
+                <label>이메일</label>
+                <input placeholder="이메일 주소를 입력하세요" key="email-input">
+                </template>
+            </div>
+            <button v-on:click="toggleLogin">로그인 유형 변경</button>
+
+            <!-- v-show -->
+            <h1 v-show="ok">안녕하세요!</h1>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    ok: true,
+                    type: 'A',
+                    
+                    loginType: 'username'
+                },
+                methods: {
+                    toggleLogin: function() {
+                        if ( this.loginType === 'username' ) {
+                            this.loginType = ''
+                        } else {
+                            this.loginType = 'username'
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>필터</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- Mustaches 사용시 -->
+            {{ message | capitalize }}
+            <!-- v-bind 사용시 -->
+            <div v-bind:id="rawId | formatId"></div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'message value',
+                    rawId: 'rawId'
+                },
+                filters: {
+                    capitalize: function (value) {
+                        if (!value) return ''
+                        value = value.toString()
+                        console.log(value.charAt(0).toUpperCase() + value.slice(1))
+                        // return value.charAt(0).toUpperCase() + value.slice(1);
+                    },
+                    formatId: function(id) {
+                        console.log(id)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

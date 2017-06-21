@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>사용자 정의 이벤트 #컴포넌트의 v-model 사용자 정의</title>
+    </head>
+    <body>
+        <div id="example-11">
+            <my-checkbox v-model="foo" value="some value"></my-checkbox>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // Vue.component('my-checkbox', {
+            //     model: {
+            //         prop: 'checked',
+            //         event: 'change'
+            //     },
+            //     props: {
+            //         // 다른 목적을 위해 `value` prop를 사용할 수 있습니다.
+            //         value: String
+            //     }
+            // })
+            // new Vue({
+            //     el: "#example-11",
+            //     data: {
+            //         foo: ""
+            //     }
+            // })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>이벤트 수식어</title>
+    </head>
+    <body>
+        <div id="example-5">
+            <!-- 클릭 이벤트 전파가 중단됩니다 -->
+            <a v-on:click.stop="doThis">click.stop</a>
+            <!-- 제출 이벤트가 페이지를 다시 로드 하지 않습니다 -->
+            <form v-on:submit.prevent="onSubmit">submit.prevent</form>
+            <!-- 수식어는 체이닝 가능합니다 -->
+            <a v-on:click.stop.prevent="doThat">click.stop.preven</a>
+            <!-- 단순히 수식어만 사용할 수 있습니다 -->
+            <form v-on:submit.prevent>submit.prevent</form>
+            <!-- 이벤트 리스너를 추가할 때 캡처모드를 사용합니다 -->
+            <!--  즉, 내부 엘리먼트를 대상으로 하는 이벤트가 해당 엘리먼트에서 처리되기 전에 여기서 처리합니다. -->
+            <div v-on:click.capture="doThis">click.capture</div>
+            <!-- event.target이 엘리먼트 자체인 경우에만 트리거를 처리합니다 -->
+            <!-- 자식 엘리먼트에서는 안됩니다 -->
+            <div v-on:click.self="doThat">click.self</div>
+            <!-- 클릭 이벤트는 최대 한번만 트리거 됩니다. -->
+            <a v-on:click.once="doThis">click.once</a>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 이벤트 수식어
+            // .stop
+            // .prevent
+            // .capture
+            // .self
+            // .once
+            new Vue({
+                el: '#example-5',
+                methods: {
+                    doThis: function(){
+                        console.log('doThis')
+                    },
+                    doThat: function() {
+                        console.log('doThat')
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

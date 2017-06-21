@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>체크박스</title>
+    </head>
+    <body>
+        <div id="example-3">
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>체크한 이름: {{ checkedNames }}</span> 
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 기본 사용법 #체크박스
+            new Vue({
+                el: '#example-3',
+                data: {
+                    checkedNames: []
+                }
+            })
+        </script>
+    </body>
+</html>

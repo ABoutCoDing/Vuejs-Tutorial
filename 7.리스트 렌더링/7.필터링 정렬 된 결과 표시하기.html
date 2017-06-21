@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>필터링 / 정렬된 결과 표시하기</title>
+    </head>
+    <body>
+        <div id="example-6">
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </div>
+
+        <div id="example-7">
+            <li v-for="n in even(numbers)">{{ n }}</li>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 필터링 / 정렬 된 결과 표시하기
+            var example6 = new Vue({
+                el: '#example-6',
+                data: {
+                    numbers: [ 1, 2, 3, 4, 5 ]
+                },
+                computed: {
+                    evenNumbers: function () {
+                    console.log('test')
+                    return this.numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                    }
+                } 
+            })
+
+            var example7 = new Vue({
+                el: '#example-7',
+                data: {
+                    numbers: [ 1, 2, 3, 4, 5 ]
+                },
+                methods: {
+                    even: function (numbers) {
+                        return numbers.filter(function (number) {
+                            return number % 2 === 0
+                        })
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

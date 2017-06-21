@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Props #리터럴 vs. 동적</title>
+    </head>
+    <body>
+        <div id="example-9">
+            <comp v-bind:initial-counter="10"></comp>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('comp', {
+                props: ['initialCounter'],
+                data: function () {
+                    return { counter: this.initialCounter }
+                },
+                computed: {
+                    normalizedSize: function () {
+                        return this.initialCounter + 1
+                    }
+                },  
+                template: '<span> {{ initialCounter }} {{ normalizedSize }} </span>'
+            })
+            var vm = new Vue({
+                el: '#example-9' 
+            })
+        </script>
+    </body>
+</html>

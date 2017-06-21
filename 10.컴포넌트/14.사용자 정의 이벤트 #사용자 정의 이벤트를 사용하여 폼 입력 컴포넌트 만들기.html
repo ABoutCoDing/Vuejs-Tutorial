@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>사용자 정의 이벤트 #사용자 정의 이벤트를 사용하여 폼 입력 컴포넌트 만들기</title>
+    </head>
+    <body>
+        <div id="example-10">
+            <currency-input v-model="price"></currency-input>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('currency-input', {
+                template: 
+                    `
+                    <span>
+                    $
+                    <input
+                        ref="input"
+                        v-bind:value="value"
+                        v-on:input="updateValue($event.target.value)">
+                    </span>
+                    `,
+                props: ['value'],
+                methods: {
+                    // 값을 직접 업데이트하는 대신 이 메소드를 사용하여
+                    // 입력 값에 대한 서식을 지정하고 배치 할 수 있습니다
+                    updateValue: function (value) {
+                    var formattedValue = value
+                        // 공백을 제거합니다.
+                        .trim()
+                        // 소수 자릿수 2자리로 줄입니다.
+                        .slice(0, value.indexOf('.') + 3)
+                    // 값이 아직 정규화 되지 않은 경우
+                    // 이를 수동으로 재정의하여 조건을 충족시킵니다.
+                    if (formattedValue !== value) {
+                        this.$refs.input.value = formattedValue
+                    }
+                    // 입력 이벤트를 통해 숫자 값을 내보냅니다.
+                    this.$emit('input', Number(formattedValue))
+                    }
+                }
+            })
+            new Vue({
+                el: "#example-10",
+                data: {
+                    price: 0
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>약어</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- v-bind 약어 -->
+            <!-- 전체 구문 -->
+            <a v-bind:href="url">abcds</a>
+            <!-- 약어 -->
+            <a :href="url">abcds</a>
+
+            <!-- v-on 약어 -->
+            <!-- 전체 구문 -->
+            <a v-on:click="doSomething">doSomething1</a>
+            <!-- 약어 -->
+            <a @click="doSomething">doSomething2</a>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    url: 'http://abcds.kr',
+                    doSomething: function() {
+                        alert('test');
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

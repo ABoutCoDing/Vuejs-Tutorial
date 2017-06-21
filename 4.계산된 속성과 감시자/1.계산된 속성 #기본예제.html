@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>계산된 속성 #기본예제</title>
+    </head>
+    <body>
+        <div id="app">
+            <p>원본 메시지: "{{ message }}"</p>
+            <p>뒤집히도록 계산된 메시지: "{{ reversedMessage }}"</p>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    message: 'hello'
+                },
+                computed: {
+                    // 계산된 getter
+                    reversedMessage: function () {
+                        // `this` 는 vm 인스턴스를 가리킵니다.
+                        return this.message.split('').reverse().join('')
+                    },
+                    
+                    // now: function () {  // 캐싱 
+                    //     return Date.now()
+                    // }
+                    
+                },
+                // 컴포넌트 내부
+                methods: {
+                    // reverseMessage: function () {
+                    //     return this.message.split('').reverse().join('')
+                    // }, 
+                    now: function () {  // 캐싱 
+                        return Date.now()
+                    }
+                }
+            })
+
+            console.log(vm.reversedMessage) 
+            vm.message = 'abcd'
+            console.log(vm.reversedMessage) 
+
+            // computed : 캐싱
+            // console.log(vm.now)
+            // console.log(vm.now)
+
+            // methods : 렌더링 할 때마다 항상 메소드를 호출
+            console.log(vm.now())
+            console.log(vm.now())
+        </script>
+    </body>
+</html>

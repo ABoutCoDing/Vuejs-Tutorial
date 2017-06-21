@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>키수식어</title>
+    </head>
+    <body>
+        <div id="example-6">
+            <!-- keyCode가 13일 때만 vm.submit()을 호출합니다 : enter 키 -->
+            <input v-on:keyup.13="submit">
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 키 수식어
+            // .enter
+            // .tab
+            // .delete (“Delete” 와 “Backspace” 키 모두를 캡처합니다)
+            // .esc
+            // .space
+            // .up
+            // .down
+            // .left
+            // .right
+            new Vue({
+                el: '#example-6',
+                methods: {
+                    submit: function(){
+                    console.log('submit')
+                    }
+                }
+            })
+
+            // v-on:keyup.f1 이 가능합니다
+            Vue.config.keyCodes.f1 = 112
+        </script>
+    </body>
+</html>

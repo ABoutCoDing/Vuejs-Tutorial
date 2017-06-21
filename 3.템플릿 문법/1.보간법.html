@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>보간법</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 문자열 -->
+            <span>메시지: {{ msg }}</span> <br/>
+            <span v-once>다시는 변경하지 않습니다: {{ msg }}</span>
+            
+            <!-- 원시 HTML -->
+            <div v-html="rawHtml"></div>
+            
+            <!-- 속성 -->
+            <div v-bind:id="dynamicId"></div>
+            <button v-bind:disabled="someDynamicCondition">Button</button>
+            
+            <!-- JavaScript 표현식 사용하기 -->
+            {{ number + 1 }} <br />
+            {{ ok ? 'YES' : 'NO' }} <br />
+            {{ message.split('').reverse().join('') }} <br />
+            <div v-bind:id="'list-' + id"></div>
+            
+            <!-- 아래는 구문입니다, 표현식이 아닙니다. -->
+            <!-- {{ var a = 1 }} -->
+            <!-- 조건문은 작동하지 않습니다. 삼항 연산자를 사용해야 합니다. -->
+            <!-- {{ if (ok) { return message } }} -->  
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    msg: '안녕하세요 Vue!',
+                    rawHtml: '<h1>123</h1>',
+                    dynamicId: 'dynamicId',
+                    someDynamicCondition: true,
+                    
+                    number: 3,
+                    ok: 'YES',
+                    message: 'hello',
+                    id: 'id'
+                }
+            })
+        </script>
+    </body>
+</html>

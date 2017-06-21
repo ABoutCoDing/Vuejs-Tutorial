@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>체크박스</title>
+    </head>
+    <body>
+        <div id="example-8">
+            <input
+                type="checkbox"
+                v-model="toggle"
+                v-bind:true-value="1"
+                v-bind:false-value="0"
+                v-bind:value="0">
+            <span>체크한 이름: {{ toggle }}</span>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 값 바인딩하기 #체크박스
+            var vm = new Vue({
+                el: '#example-8',
+                data: {
+                    toggle: []
+                }
+            })
+
+            // 체크 하면:
+            // vm.toggle === vm.a
+            // // 체크하지 않으면:
+            // vm.toggle === vm.b
+        </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>생성자</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var MyComponent = Vue.extend({
+                // 옵션 확장
+            })
+            // `MyComponent`의 모든 인스턴스는
+            // 미리 정의된 확장 옵션과 함께 생성됩니다.
+            var myComponentInstance = new MyComponent()
+        </script>
+    </body>
+</html>

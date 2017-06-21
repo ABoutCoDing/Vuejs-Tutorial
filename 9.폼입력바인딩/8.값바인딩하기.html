@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>값바인딩하기</title>
+    </head>
+    <body>
+        <div id="example-9">
+            <input type="radio" v-model="pick" v-bind:value="true">
+            <span>체크한 이름: {{ pick }}</span>
+        </div>
+
+        <div id="example-10">
+            <select v-model="selected" v-on>
+                <!-- inline object literal -->
+                <option v-bind:value="{ number: 123 }">123</option>
+            </select>
+            <span>체크한 이름: {{ selected }}</span>
+        </div>
+
+        <div id="example-11">
+            <input v-model.lazy="msg" >
+                {{ msg }}
+            <input v-model.number="age" type="number">
+                {{ age }}
+            <input v-model.trim="msg1">
+                {{ msg1 }}
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 값 바인딩하기 #라디오
+            new Vue({
+                el: '#example-9',
+                data: {
+                    pick: []
+                }
+            })
+
+            // 값 바인딩하기 #셀렉트
+            new Vue({
+                el: '#example-10',
+                data: {
+                    selected: []
+                }
+            })
+
+            // typeof vm.selected // -> 'object'
+            // vm.selected.number // -> 123
+
+            // 값 바인딩하기 #수식어
+            new Vue({
+                el: '#example-11',
+                data: {
+                    msg: "",
+                    age: null,
+                    msg1: "",
+                }
+            })
+
+        </script>
+    </body>
+</html>

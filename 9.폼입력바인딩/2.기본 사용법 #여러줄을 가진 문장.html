@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>여러 줄을 가지는 메시지</title>
+    </head>
+    <body>
+        <div id="example-2">
+            <span>여러 줄을 가지는 메시지:</span>
+            <p style="white-space: pre">{{ message }}</p>
+            <br>
+            <textarea v-model="message" placeholder="여러줄을 입력해보세요"></textarea>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 기본 사용법 #여러줄을 가진 문장
+            new Vue({
+                el: '#example-2',
+                data: {
+                    message: 'hello'
+                }
+            })
+        </script>
+    </body>
+</html>

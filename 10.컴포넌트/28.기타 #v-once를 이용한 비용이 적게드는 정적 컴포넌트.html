@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>기타 #v-once를 이용한 비용이 적게드는 정적 컴포넌트</title>
+    </head>
+    <body>
+        <!-- HTML 템플릿에서 항상 kebab-case를 사용하세요 -->
+        <kebab-cased-component></kebab-cased-component>
+        <camel-cased-component></camel-cased-component>
+        <title-cased-component></title-cased-component>
+
+        <!-- 문자열 템플릿은 무엇을 사용해도 상관 없습니다. -->
+        <my-component></my-component>
+        <myComponent></myComponent>
+        <MyComponent></MyComponent>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 기타 #컴포넌트 이름 규약
+            // 컴포넌트 정의에서
+            // components: {
+            //   // kebab-case를 사용한 등록
+            //   'kebab-cased-component': { /* ... */ },
+            //   // camelCase를 사용한 등록
+            //   'camelCasedComponent': { /* ... */ },
+            //   // TitleCase를 사용한 등록
+            //   'TitleCasedComponent': { /* ... */ }
+            // }
+        </script>
+    </body>
+</html>

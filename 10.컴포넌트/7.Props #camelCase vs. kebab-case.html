@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Props #camelCase vs. kebab-case</title>
+    </head>
+    <body>
+        <div id="example-5">
+            <!-- HTML는 kebab-case -->
+            <child my-message="안녕하세요!"></child>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('child', {
+                // JavaScript는 camelCase
+                props: ['myMessage'],
+                template: '<span>{{ myMessage }}</span>'
+            })
+            new Vue({
+                el: '#example-5'
+            })
+        </script>
+    </body>
+</html>

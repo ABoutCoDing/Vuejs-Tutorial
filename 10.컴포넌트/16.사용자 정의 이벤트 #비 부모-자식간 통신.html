@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>사용자 정의 이벤트 #비 부모-자식간 통신</title>
+    </head>
+    <body>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            // 사용자 정의 이벤트 #비 부모-자식간 통신
+            var bus = new Vue()
+            // 컴포넌트 A의 메소드
+            bus.$emit('id-selected', 1)
+            // 컴포넌트 B의 created 훅
+            bus.$on('id-selected', function (id) {
+            // ...
+            })
+        </script>
+    </body>
+</html>
