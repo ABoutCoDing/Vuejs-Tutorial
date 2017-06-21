@@ -2,6 +2,9 @@
 # 공식 Reference 문서 
 https://kr.vuejs.org/v2/guide/
 
+# 설치 방법
+https://kr.vuejs.org/v2/guide/installation.html
+
 # Vue개발자 도구 설치 
 https://github.com/vuejs/vue-devtools
 Clone this repo
