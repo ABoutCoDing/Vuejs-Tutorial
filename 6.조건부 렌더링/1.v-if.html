@@ -14,15 +14,15 @@
             </template>
             
             <!-- v-else -->
-            <div v-if="Math.random() > 0.5">
+            <!--<div v-if="Math.random() > 0.5">
                 이제 나를 볼 수 있어요
             </div>
             <div v-else>
                 이제는 안보입니다
-            </div>
+            </div>-->
 
             <!-- v-else-if -->
-            <div v-if="type === 'A'">
+            <!--<div v-if="type === 'A'">
                 A
             </div>
             <div v-else-if="type === 'B'">
@@ -33,10 +33,10 @@
             </div>
             <div v-else>
                 Not A/B/C
-            </div>
-                        
-            <div>
-                <!-- key를 이용한 재사용 가능한 엘리먼트 제어 -->
+            </div>-->
+            
+            <!-- key를 이용한 재사용 가능한 엘리먼트 제어 -->
+            <!--<div>
                 <template v-if="loginType === 'username'">
                 <label>사용자 이름</label>
                 <input placeholder="사용자 이름을 입력하세요" key="username-input">
@@ -46,10 +46,10 @@
                 <input placeholder="이메일 주소를 입력하세요" key="email-input">
                 </template>
             </div>
-            <button v-on:click="toggleLogin">로그인 유형 변경</button>
+            <button v-on:click="toggleLogin">로그인 유형 변경</button>-->
 
             <!-- v-show -->
-            <h1 v-show="ok">안녕하세요!</h1>
+            <!--<h1 v-show="ok">안녕하세요!</h1>-->
         </div>
 
         <script src="https://unpkg.com/vue"></script>
