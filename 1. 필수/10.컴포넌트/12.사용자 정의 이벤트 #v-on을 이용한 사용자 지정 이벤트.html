@@ -5,13 +5,13 @@
         <title>사용자 정의 이벤트 #v-on을 이용한 사용자 지정 이벤트</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="counter-event-example">
             <p>{{ total }}</p>
-            <button-counter v-on:increment="incrementTotal"></button-counter>
-            <button-counter v-on:increment="incrementTotal"></button-counter>
+            <button-counter v-on:increment1="incrementTotal"></button-counter>
+            <button-counter v-on:increment1="incrementTotal"></button-counter>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
         
         <script>
             Vue.component('button-counter', {
@@ -24,7 +24,7 @@
                 methods: {
                     increment: function () {
                         this.counter += 1
-                        this.$emit('increment') // 부모를 호출한다.
+                        this.$emit('increment1') // 부모를 호출한다.
                     }
                 },
             })

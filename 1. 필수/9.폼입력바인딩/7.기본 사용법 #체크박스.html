@@ -11,9 +11,9 @@
             <input
                 type="checkbox"
                 v-model="toggle"
-                v-bind:true-value="1"
-                v-bind:false-value="0"
-                v-bind:value="0">
+                v-bind:true-value="a"
+                v-bind:false-value="b"
+                v-bind:value="a">
             <span>체크한 이름: {{ toggle }}</span>
         </div>
 
@@ -22,7 +22,9 @@
             var vm = new Vue({
                 el: '#example-8',
                 data: {
-                    toggle: []
+                    toggle: "",
+                    a: "a",
+                    b: "b"
                 }
             })
 

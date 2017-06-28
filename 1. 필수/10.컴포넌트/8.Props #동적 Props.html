@@ -5,6 +5,8 @@
         <title>8.Props #동적 Props</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-6">
             <input v-model="parentMsg">
             <br>
@@ -12,8 +14,6 @@
             <child v-bind:my-message="parentMsg"></child>
             <!--<child :my-message="parentMsg"></child>-->
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
         
         <script>
             // 부모의 데이터에 props를 동적으로 바인딩 
