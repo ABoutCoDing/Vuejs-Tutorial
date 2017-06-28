@@ -5,6 +5,9 @@
         <title>컴포넌트를 사용한 작성방법</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <ol>
                 <!-- 이제 각 todo-item 에 todo 객체를 제공합니다. -->
@@ -12,8 +15,6 @@
                 <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
             </ol>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             Vue.component('todo-item', {

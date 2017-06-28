@@ -5,6 +5,8 @@
         <title>v-for#v-for와 v-if</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-4">
             <li v-for="todo in todos" v-if="!todo.isComplete">
                 {{ todo.text }}
@@ -17,8 +19,6 @@
             </ul>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // v-for #v-for와 v-if
             var example4 = new Vue({

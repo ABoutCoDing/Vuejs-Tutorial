@@ -5,6 +5,11 @@
         <title>감시자</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+
         <div id="watch-example">
             <p>
                 yes/no 질문을 물어보세요:
@@ -12,10 +17,6 @@
             </p>
             <p>{{ answer }}</p>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
-        <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
 
         <script>
             var watchExampleVM = new Vue({

@@ -5,6 +5,8 @@
         <title>체크박스</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-3">
             <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
             <label for="jack">Jack</label>
@@ -16,8 +18,6 @@
             <span>체크한 이름: {{ checkedNames }}</span> 
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // 기본 사용법 #체크박스
             new Vue({

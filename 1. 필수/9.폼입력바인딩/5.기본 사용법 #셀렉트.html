@@ -5,6 +5,8 @@
         <title>라디오</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-5">
             <select v-model="selected">
                 <option disabled value="">Please select one</option>
@@ -15,8 +17,6 @@
             <span>선택함: {{ selected }}</span>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             new Vue({
                 el: '#example-5',

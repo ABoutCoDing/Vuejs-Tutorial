@@ -5,6 +5,8 @@
         <title>v-for#컴포넌트와 v-for</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="todo-list-example">
             <input
                 v-model="newTodoText"
@@ -20,8 +22,6 @@
             </ul>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // v-for #컴포넌트와 v-for
             Vue.component('todo-item', {

@@ -5,6 +5,8 @@
         <title>라디오</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-4">
             <input type="radio" id="one" value="One" v-model="picked">
             <label for="one">One</label>
@@ -15,8 +17,6 @@
             <span>선택: {{ picked }}</span>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // 기본 사용법 #라디오
             new Vue({

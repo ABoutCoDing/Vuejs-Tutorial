@@ -10,12 +10,13 @@
         </style>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <my-component class="baz boo">baz</my-component>
             <my-component v-bind:class="{ active: isActive }">boo</my-component>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             Vue.component('my-component', {

@@ -10,14 +10,14 @@
         </style>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">객체구문1</div>
             <div v-bind:style="styleObject">객체구문2</div>
             
             <div v-bind:style="[activeColor, fontSize]">배열구문</div>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var vm3 = new Vue({

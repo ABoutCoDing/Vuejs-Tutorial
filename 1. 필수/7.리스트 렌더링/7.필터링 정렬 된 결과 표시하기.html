@@ -5,6 +5,8 @@
         <title>필터링 / 정렬된 결과 표시하기</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-6">
             <li v-for="n in evenNumbers">{{ n }}</li>
         </div>
@@ -13,8 +15,6 @@
             <li v-for="n in even(numbers)">{{ n }}</li>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // 필터링 / 정렬 된 결과 표시하기
             var example6 = new Vue({

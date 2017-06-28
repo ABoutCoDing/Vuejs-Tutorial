@@ -5,12 +5,12 @@
         <title>키수식어</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-6">
             <!-- keyCode가 13일 때만 vm.submit()을 호출합니다 : enter 키 -->
             <input v-on:keyup.13="submit">
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
         
         <script>
             // 키 수식어

@@ -5,6 +5,8 @@
         <title>이벤트 수식어</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-5">
             <!-- 클릭 이벤트 전파가 중단됩니다 -->
             <a v-on:click.stop="doThis">click.stop</a>
@@ -24,8 +26,6 @@
             <a v-on:click.once="doThis">click.once</a>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // 이벤트 수식어
             // .stop

@@ -5,14 +5,14 @@
         <title>배열변경감지</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-5">
             <div v-for="item in items" :key="item.id">
                 {{ item.message }}
                 <!-- content -->
             </div>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
         
         <script>
             var example5 = new Vue({

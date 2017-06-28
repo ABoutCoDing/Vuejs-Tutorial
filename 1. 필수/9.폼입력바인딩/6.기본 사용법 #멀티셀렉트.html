@@ -5,6 +5,8 @@
         <title>멀티셀렉트</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-6">
             <select v-model="selected" multiple>
                 <option>A</option>
@@ -24,8 +26,6 @@
             <span>Selected: {{ selected }}</span>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // 기본 사용법 #멀티셀렉트 
             new Vue({

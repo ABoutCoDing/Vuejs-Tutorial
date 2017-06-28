@@ -5,14 +5,15 @@
         <title>필터</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <!-- Mustaches 사용시 -->
             {{ message | capitalize }}
             <!-- v-bind 사용시 -->
             <div v-bind:id="rawId | formatId"></div>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var app = new Vue({

@@ -5,12 +5,13 @@
         <title>계산된 속성 #기본예제</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <p>원본 메시지: "{{ message }}"</p>
             <p>뒤집히도록 계산된 메시지: "{{ reversedMessage }}"</p>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var vm = new Vue({

@@ -10,6 +10,9 @@
         </style>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <div class="static"
                 v-bind:class="{ active: isActive, 'text-danger': hasError }">test
@@ -25,8 +28,6 @@
                 <div v-bind:class="[{ active: isActive }, errorClass]">
             </div>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var vm = new Vue({

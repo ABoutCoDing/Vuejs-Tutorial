@@ -5,6 +5,9 @@
         <title>디렉티브</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <p v-if="seen">이제 나를 볼 수 있어요</p>
             
@@ -15,8 +18,6 @@
             <!-- 수식어 -->
             <form v-on:submit.prevent="onSubmit"></form>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var app = new Vue({

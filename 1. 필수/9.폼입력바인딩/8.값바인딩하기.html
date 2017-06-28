@@ -5,6 +5,8 @@
         <title>값바인딩하기</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-9">
             <input type="radio" v-model="pick" v-bind:value="true">
             <span>체크한 이름: {{ pick }}</span>
@@ -27,8 +29,6 @@
                 {{ msg1 }}
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             // 값 바인딩하기 #라디오
             new Vue({

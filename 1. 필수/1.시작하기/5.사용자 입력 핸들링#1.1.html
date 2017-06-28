@@ -5,12 +5,13 @@
         <title>사용자 입력 핸들링</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app-5">
             <p>{{ message }}</p>
             <button v-on:click="reverseMessage">메시지 뒤집기</button>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var app5 = new Vue({

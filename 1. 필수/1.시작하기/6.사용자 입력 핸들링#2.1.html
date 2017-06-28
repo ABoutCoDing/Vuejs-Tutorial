@@ -5,12 +5,13 @@
         <title>사용자 입력 핸들링</title>
     </head>
     <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="app">
             <p>{{ message }}</p>
             <input v-model="message">
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
 
         <script>
             var app = new Vue({
