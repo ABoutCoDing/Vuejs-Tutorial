@@ -5,6 +5,8 @@
         <title>슬롯을 사용한 컨텐츠 배포 #단일 슬롯</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="slot-example">
             <h1>나는 부모 컴포넌트의 제목입니다</h1>
             <my-component>
@@ -12,8 +14,6 @@
                 <p>이것은 원본 중 추가 컨텐츠 입니다</p>
             </my-component>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
         
         <script>
             Vue.component("my-component", {

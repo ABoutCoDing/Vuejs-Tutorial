@@ -5,12 +5,12 @@
         <title>기타 #비동기 컴포넌트</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+
         <div id="example-async">
             <async-example><async-example>
         </div>
 
-        <script src="https://unpkg.com/vue"></script>
-        
         <script>
             Vue.component('async-example', function (resolve, reject) {
                 setTimeout(function () {
