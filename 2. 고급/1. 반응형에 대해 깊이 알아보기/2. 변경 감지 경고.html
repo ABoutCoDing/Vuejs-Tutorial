@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>변경 감지 경고</title>
+    </head>
+    <body>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+            var vm = new Vue({
+                data: {
+                    a: 1,
+                    someObject: {},
+                    someFunc: function () {
+                        this.$set(this.someObject, 'b', 2)
+                    }
+                }
+            })
+            // `vm.a` 은 이제 반응적입니다.
+            vm.b = 2
+            // `vm.b` 은 이제 반응적이지 않습니다.
+            Vue.set(vm.someObject, 'b', 2)
+            // vm.someFunc()
+            // console.log(vm.b)
+        </script>
+    </body>
+</html>

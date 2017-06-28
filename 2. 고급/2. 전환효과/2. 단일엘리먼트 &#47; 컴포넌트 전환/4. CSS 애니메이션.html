@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>단일 엘리먼트 - 컴포넌트 전환</title>
+
+        <style>
+            .bounce-enter-active {
+                animation: bounce-in .5s;
+            }
+            .bounce-leave-active {
+                animation: bounce-out .5s;
+            }
+            @keyframes bounce-in {
+                0% {
+                    transform: scale(0);
+                }
+                50% {
+                    transform: scale(1.5);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            @keyframes bounce-out {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.5);
+                }
+                100% {
+                    transform: scale(0);
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        
+        <script src="https://unpkg.com/vue"></script>
+
+        <div id="example-2">
+            <button @click="show = !show">Toggle show</button>
+            <transition name="bounce">
+                <p v-if="show">Look at me!</p>
+            </transition>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#example-2',
+                data: {
+                    show: true
+                }
+            })
+        </script>
+    </body>
+</html>

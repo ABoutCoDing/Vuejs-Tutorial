@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>비동기 갱신 큐</title>
+    </head>
+    <body>
+        
+        <script src="https://unpkg.com/vue"></script>
+
+        <div id="example">{{ message }}</div>
+
+        <script>
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    message: '123'
+                }
+            })
+            vm.message = 'new message' // 데이터  변경
+            console.log(vm.$el.textContent)
+            vm.$el.textContent === 'new message' // false
+            console.log(vm.$el.textContent)
+            Vue.nextTick(function () {
+                vm.$el.textContent === 'new message' // true
+                console.log(vm.$el.textContent)
+            })
+        </script>
+    </body>
+</html>

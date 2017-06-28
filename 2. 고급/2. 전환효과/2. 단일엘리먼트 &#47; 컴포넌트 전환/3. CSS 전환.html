@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>단일 엘리먼트 - 컴포넌트 전환</title>
+
+        <style>
+            /* 애니메이션 진입 및 진출은 다른 지속 시간 및  */
+            /* 타이밍 기능을 사용할 수 있습니다. */
+            .slide-fade-enter-active {
+                transition: all .3s ease;
+            }
+            .slide-fade-leave-active {
+                transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+            }
+            .slide-fade-enter, .slide-fade-leave-to
+                /* .slide-fade-leave-active for <2.1.8 */ {
+                transform: translateX(10px);
+                opacity: 0;
+            }
+        </style>
+
+    </head>
+    <body>
+        
+        <script src="https://unpkg.com/vue"></script>
+
+        <div id="example-1">
+            <button @click="show = !show">
+                Toggle render
+            </button>
+            <transition name="slide-fade">
+                <p v-if="show">hello</p>
+            </transition>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#example-1',
+                data: {
+                    show: true
+                }
+            })
+        </script>
+    </body>
+</html>
