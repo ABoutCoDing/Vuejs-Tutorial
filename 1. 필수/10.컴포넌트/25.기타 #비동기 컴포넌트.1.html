@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>기타 #비동기 컴포넌트</title>
+    </head>
+    <body>
+        <div id="example-async">
+            <async-example><async-example>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('async-example', function (resolve, reject) {
+                setTimeout(function () {
+                    // 컴포넌트 정의를 resolve 콜백에 전달합니다.
+                    resolve({
+                        template: '<div>I am async!</div>'
+                    })
+                }, 4000)
+            })
+
+            // Vue.component('async-webpack-example', function (resolve) {
+            //     require(['./my-async-component'], resolve)
+            // })
+
+            // Vue.component(
+            //     'async-webpack-example',
+            //     () => import('./my-async-component')
+            // )
+
+            new Vue({
+                el: '#example-async'
+                // ...
+                // components: {
+                //     'my-component': () => import('./my-async-component')
+                // }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>슬롯을 사용한 컨텐츠 배포 #이름을 가지는 슬롯</title>
+    </head>
+    <body>
+        <div id = "app">
+            <app-layout>
+                <h1 slot="header">여기에 페이지 제목이 위치합니다</h1>
+                <p>메인 컨텐츠의 단락입니다.</p>
+                <p>하나 더 있습니다.</p>
+                <p slot="footer">여기에 연락처 정보입니다.</p>
+            </app-layout>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+
+            Vue.component("app-layout", {
+                template: 
+                    `
+                    <div class="container">
+                        <header>
+                            <slot name="header"></slot>
+                        </header>
+                        <main>
+                            <slot></slot>
+                        </main>
+                        <footer>
+                            <slot name="footer"></slot>
+                        </footer>
+                    </div>
+                    `
+                }
+            )
+            var vm = new Vue({
+                el: '#app'
+            })
+        </script>
+    </body>
+</html>

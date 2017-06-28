@@ -5,7 +5,10 @@
         <title>Props #Prop 검증</title>
     </head>
     <body>
-
+        <div id="example">
+            <child prop-f="12"></child>
+            <child prop-e="{'name':'cat'}"></child>
+        </div>
 
         <script src="https://unpkg.com/vue"></script>
         
@@ -48,6 +51,28 @@
             //     }
             //   },
             // })
+
+            Vue.component('child', {
+                // props 정의
+                props: {
+                    propF: {
+                        validator: function (value) {
+                            console.log(value)
+                            return value > 10
+                        }
+                    },
+                    propE: {
+                        type: Object,
+                        default: function () {
+                            return { message: 'hello' }
+                        }
+                    },
+                },
+                template: '<span>{{ propF }} {{ propE }}</span>'
+            })
+            new Vue({
+                el: '#example'
+            })
         </script>
     </body>
 </html>

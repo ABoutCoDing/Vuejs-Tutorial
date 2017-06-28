@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>기타 #인라인 템플릿</title>
+    </head>
+    <body>
+        <div id="example">
+            <my-component inline-template>
+                <div>
+                    <p>이것은 컴포넌트의 자체 템플릿으로 컴파일됩니다.</p>
+                    <p>부모가 만들어낸 내용이 아닙니다.</p>
+                </div>
+            </my-component>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            Vue.component('my-component', {
+            })
+            var vm = new Vue ({
+                el: "#example"
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>기타 #컴포넌트 이름규약</title>
+    </head>
+    
+    <body>
+        <div id="example">
+            <kebab-cased-component></kebab-cased-component>
+            <camel-Cased-Component></camel-Cased-Component>
+            <pascal-cased-component></pascal-cased-component>
+        </div>
+
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script>
+            var vm = new Vue({
+                el: '#example',
+                components: {
+                    // kebab-case를 사용한 등록
+                    'kebab-cased-component': { 
+                        template: '<div> kebab-cased-component </div>',
+                        /* ... */
+                    },
+                    // // camelCase를 사용한 등록
+                    'camelCasedComponent': { 
+                        template: '<div> camelCasedComponent </div>',
+                        /* ... */ 
+                    },
+                    // // PascalCase를 사용한 등록
+                    'PascalCasedComponent': { 
+                        template: '<div> PascalCasedComponent </div>',
+                        /* ... */ 
+                    }
+                }
+            })
+
+        </script>
+    </body>
+</html>
