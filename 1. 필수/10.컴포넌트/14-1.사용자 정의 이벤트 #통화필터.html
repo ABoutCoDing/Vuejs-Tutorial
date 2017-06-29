@@ -5,6 +5,9 @@
         <title>사용자 정의 이벤트 #통화 필터</title>
     </head>
     <body>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://cdn.rawgit.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e/raw/974aa47f8f9c5361c5233bd56be37db8ed765a09/currency-validator.js"></script>
+
         <div id="app">
             <currency-input label="Price" v-model="price"></currency-input>
             <currency-input label="Shipping" v-model="shipping"></currency-input>
@@ -12,10 +15,7 @@
             <currency-input label="Discount" v-model="discount"></currency-input>
             <p>Total: ${{ total }}</p>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
-        <script src="https://cdn.rawgit.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e/raw/974aa47f8f9c5361c5233bd56be37db8ed765a09/currency-validator.js"></script>
-
+ 
         <script>
             Vue.component('currency-input', {
                 template: '\
