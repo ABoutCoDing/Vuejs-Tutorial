@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -58,7 +57,7 @@
                         new TWEEN.Tween(this.tweenedColor)
                             .to(this.color, 750)
                             .onComplete(function () {
-                            cancelAnimationFrame(animationFrame)
+                                cancelAnimationFrame(animationFrame)
                             })
                             .start()
                         animationFrame = requestAnimationFrame(animate)

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>기초</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <script>
+            // mixin 객체 생성
+            var myMixin = {
+                created: function () {
+                    this.hello()
+                },
+                methods: {
+                    hello: function () {
+                    console.log('hello from mixin!')
+                    }
+                }
+            }
+            // mixin을 사용할 컴포넌트 정의
+            var Component = Vue.extend({
+                mixins: [myMixin]
+            })
+            var component = new Component() // -> "hello from mixin!"
+        </script>
+    </body>
+</html>

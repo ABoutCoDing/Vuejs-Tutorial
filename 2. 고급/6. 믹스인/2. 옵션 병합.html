@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>옵션 병합</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <script>
+            var mixin = {
+                created: function () {
+                    console.log('mixin hook called')
+                }
+            }
+            new Vue({
+                mixins: [mixin],
+                created: function () {
+                    console.log('component hook called')
+                }
+            })
+            // -> "mixin hook called"
+            // -> "component hook called"
+        </script>
+    </body>
+</html>

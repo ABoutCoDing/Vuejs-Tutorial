@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>전역 Mixin</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <script>
+            // `myOption` 사용자 정의 옵션을 위한 핸들러 주입
+            Vue.mixin({
+                created: function () {
+                    var myOption = this.$options.myOption
+                    if (myOption) {
+                    console.log(myOption)
+                    }
+                }
+            })
+            new Vue({
+                myOption: 'hello!'
+            })
+            // -> "hello!"
+        </script>
+    </body>
+</html>

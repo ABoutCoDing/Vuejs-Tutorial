@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>사용자 정의 옵션 병합 전략</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            const merge = Vue.config.optionMergeStrategies.computed
+            Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
+                if (!toVal) return fromVal
+                if (!fromVal) return toVal
+                    return {
+                        getters: merge(toVal.getters, fromVal.getters),
+                        state: merge(toVal.state, fromVal.state),
+                        actions: merge(toVal.actions, fromVal.actions)
+                }
+            }
+            console.log(Vue.config.optionMergeStrategies.vuex)
+            Vue.config.optionMergeStrategies.vuex(1, 2)
+        </script>
+    </body>
+</html>
