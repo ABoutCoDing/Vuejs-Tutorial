@@ -10,12 +10,23 @@
         
         <script>
             var bus = new Vue()
+            
             // 컴포넌트 A의 메소드
             bus.$emit('id-selected', 1)
-                // 컴포넌트 B의 created 훅
+            // 컴포넌트 B의 created 훅
             bus.$on('id-selected', function (id) {
-                // ...
+            // ...
             })
+
+            var vm1 = Vue.component(
+                bus.$emit('id-selected', 1)
+            )
+
+            var vm2 = Vue.component(
+                bus.$on('id-selected', function (id) {
+                    // ...
+                })
+            )
         </script>
     </body>
 </html>

@@ -2,13 +2,26 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>사용자 정의 이벤트 #.sync 수식어</title>
+        <title>13.사용자 정의 이벤트 #.sync 수식어</title>
     </head>
     <body>
-
         <script src="https://unpkg.com/vue"></script>
+
+        <div id="counter-event-example">
+            <comp :foo.sync="bar"></comp>
+        </div>
         
         <script>
+            Vue.component('comp', {
+                template: '<div></div>',
+            })
+            new Vue({
+                el: '#counter-event-example',
+                methods: {
+                    bar: function(value) {
+                    }
+                }
+            })
         </script>
     </body>
 </html>

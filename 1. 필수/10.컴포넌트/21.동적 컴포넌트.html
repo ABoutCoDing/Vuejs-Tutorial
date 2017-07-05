@@ -8,11 +8,9 @@
         <script src="https://unpkg.com/vue"></script>
 
         <div id="example-13">
-            <keep-alive>
-                <component v-bind:is="currentView">
-                    <!-- vm.currentView가 변경되면 컴포넌트가 변경됩니다! -->
-                </component>
-            </keep-alive>
+            <component v-bind:is="currentView">
+                <!-- vm.currentView가 변경되면 컴포넌트가 변경됩니다! -->
+            </component>
         </div>
         
         <script>

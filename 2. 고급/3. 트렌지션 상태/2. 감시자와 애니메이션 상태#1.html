@@ -22,11 +22,11 @@
                 },
                 watch: {
                     number: function(newValue, oldValue) {
-                    var vm = this
-                    var animationFrame
-                    function animate (time) {
-                        TWEEN.update(time)
-                        animationFrame = requestAnimationFrame(animate)
+                        var vm = this
+                        var animationFrame
+                        function animate (time) {
+                            TWEEN.update(time)
+                            animationFrame = requestAnimationFrame(animate)
                     }
                     new TWEEN.Tween({ tweeningNumber: oldValue })
                         .easing(TWEEN.Easing.Quadratic.Out)
@@ -38,7 +38,7 @@
                             cancelAnimationFrame(animationFrame)
                         })
                         .start()
-                    animationFrame = requestAnimationFrame(animate)
+                        animationFrame = requestAnimationFrame(animate)
                     }
                 }
             })
