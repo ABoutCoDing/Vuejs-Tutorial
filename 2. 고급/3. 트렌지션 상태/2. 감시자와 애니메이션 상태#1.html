@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>감시자와 애니메이션 상태 #1</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <script src="https://unpkg.com/tween.js@16.3.4"></script>
+        <div id="animated-number-demo">
+            <input v-model.number="number" type="number" step="20">
+            <p>{{ animatedNumber }}</p>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#animated-number-demo',
+                data: {
+                    number: 0,
+                    animatedNumber: 0
+                },
+                watch: {
+                    number: function(newValue, oldValue) {
+                    var vm = this
+                    var animationFrame
+                    function animate (time) {
+                        TWEEN.update(time)
+                        animationFrame = requestAnimationFrame(animate)
+                    }
+                    new TWEEN.Tween({ tweeningNumber: oldValue })
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({ tweeningNumber: newValue }, 500)
+                        .onUpdate(function () {
+                            vm.animatedNumber = this.tweeningNumber.toFixed(0)
+                        })
+                        .onComplete(function () {
+                            cancelAnimationFrame(animationFrame)
+                        })
+                        .start()
+                    animationFrame = requestAnimationFrame(animate)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

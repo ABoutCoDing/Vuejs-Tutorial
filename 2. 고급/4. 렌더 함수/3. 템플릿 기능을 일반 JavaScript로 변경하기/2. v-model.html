@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-if 와 v-for</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+            <ul v-if="items.length">
+                <li v-for="item in items">{{ item.name }}</li>
+            </ul>
+            <p v-else>No items found.</p>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#example-8',
+                data: {
+                    items: {}
+                },
+                render: function (createElement) {
+                    var self = this
+                    return createElement('input', {
+                        domProps: {
+                            value: self.value
+                        },
+                        on: {
+                            input: function (event) {
+                                self.value = event.target.value
+                                self.$emit('input', event.target.value)
+                            }
+                        }
+                    })
+                }
+            })
+        </script>
+    </body>
+</html>

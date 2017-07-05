@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>디렉티브 훅 전달인자</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+            <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
+        </div>
+
+        <script>
+            Vue.directive('demo', {
+                bind: function (el, binding, vnode) {
+                    var s = JSON.stringify
+                    el.innerHTML =
+                    'name: '       + s(binding.name) + '<br>' +
+                    'value: '      + s(binding.value) + '<br>' +
+                    'expression: ' + s(binding.expression) + '<br>' +
+                    'argument: '   + s(binding.arg) + '<br>' +
+                    'modifiers: '  + s(binding.modifiers) + '<br>' +
+                    'vnode keys: ' + Object.keys(vnode).join(', ')
+                }
+            })
+            new Vue({
+                el: '#hook-arguments-example',
+                data: {
+                    message: 'hello!'
+                }
+            })
+        </script>
+    </body>
+</html>

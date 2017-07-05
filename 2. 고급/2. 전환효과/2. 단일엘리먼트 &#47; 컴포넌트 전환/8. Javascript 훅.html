@@ -15,7 +15,11 @@
         </style>
     </head>
     <body>
-        
+        <script src="https://unpkg.com/vue"></script>
+        <!-- Velocity는 jQuery.animate와 매우 비슷하게 동작하며 -->
+        <!-- JavaScript 애니메이션의 훌륭한 옵션입니다. -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+
         <div id="example-4">
             <button @click="show = !show">
                 Toggle
@@ -31,11 +35,6 @@
                 </p>
             </transition>
         </div>
-
-        <script src="https://unpkg.com/vue"></script>
-        <!-- Velocity는 jQuery.animate와 매우 비슷하게 동작하며 -->
-        <!-- JavaScript 애니메이션의 훌륭한 옵션입니다. -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
         
         <script>
             new Vue({

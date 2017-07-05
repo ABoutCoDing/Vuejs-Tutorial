@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>함수형 컴포넌트</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+          <anchored-heading test-prop="112">Hello world!</anchored-heading>
+        </div>
+
+        <script>
+          Vue.component('anchored-heading', {
+            functional: true,
+            render: function (createElement, context) {
+                function funcPropTest () {
+                    console.log(context.props.testProp)
+                    return 'div'
+                }
+
+                return createElement(
+                    funcPropTest(),
+                    [
+                        'Some text comes first.',
+                        createElement('h1', 'A headline'),
+                    ]
+                )
+            },
+            props: {
+                testProp: {
+                    type: String,
+                    required: true
+                }
+            }
+          })
+          new Vue({
+            el: "#example-8",
+          });
+        </script>
+    </body>
+</html>

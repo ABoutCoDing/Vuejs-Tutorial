@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>slots</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+          <anchored-heading>Hello world!</anchored-heading>
+        </div>
+
+        <script>
+          Vue.component('anchored-heading', {
+            render: function (createElement) {
+              // <div><slot></slot></div>
+              return createElement('div', this.$slots.default)
+            }
+          })
+          new Vue({
+            el: "#example-8",
+          });
+        </script>
+    </body>
+</html>

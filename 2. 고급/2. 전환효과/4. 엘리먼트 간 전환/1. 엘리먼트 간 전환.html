@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>엘리먼트 간 전환</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>
+        
+        <div id="example">
+            <!--<transition>
+                <button v-if="isEditing" key="save">
+                    Save
+                </button>
+                <button v-else key="edit">
+                    Edit
+                </button>
+            </transition>-->
+
+            <!--<transition>
+                <button v-bind:key="isEditing">
+                    {{ isEditing ? 'Save' : 'Edit' }}
+                </button>
+            </transition>-->
+
+            <!--<transition>
+                <button v-if="docState === 'saved'" key="saved">
+                    Edit
+                </button>
+                <button v-if="docState === 'edited'" key="edited">
+                    Save
+                </button>
+                <button v-if="docState === 'editing'" key="editing">
+                    Cancel
+                </button>
+            </transition>-->
+
+            <!--<transition>
+                <button v-bind:key="docState">
+                    {{ buttonMessage }}
+                </button>
+            </transition>-->
+        </div>
+        
+        <script>
+            new Vue({
+                el: '#example',
+                data : {
+                    'isEditing' : true,
+                    'docState': 'saved'
+                },
+                computed: {
+                    buttonMessage: function () {
+                        switch (this.docState) {    // this
+                            case 'saved': return 'Edit'
+                            case 'edited': return 'Save'
+                            case 'editing': return 'Cancel'
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

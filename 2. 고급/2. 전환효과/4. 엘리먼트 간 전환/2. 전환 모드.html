@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>전환 모드</title>
+        <style>
+            .fade-enter-active, .fade-leave-active {
+                transition: opacity .5s
+            }
+            .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+                opacity: 0
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>
+        
+        <div id="example">
+            <transition name="fade" mode="out-in">
+                <button v-bind:key="isEditing" v-on:click="buttonMessage()">
+                    {{ isEditing ? 'Save' : 'Edit' }}
+                </button>
+            </transition>
+        </div>
+        
+        <script>
+            new Vue({
+                el: '#example',
+                data: {
+                    'isEditing': true
+                },
+                methods: {
+                    buttonMessage: function () {
+                        this.isEditing ? this.isEditing = false : this.isEditing = true
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

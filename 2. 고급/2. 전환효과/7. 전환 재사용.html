@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>전환 재사용</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+
+        <div id="transition-components-demo" class="demo">
+            <my-special-transition>test</my-special-transition>
+        </div>
+
+        <script>
+            Vue.component('my-special-transition', {
+                template: 
+                    `
+                        <transition\
+                            name="very-special-transition"\
+                            mode="out-in"\
+                            v-on:before-enter="beforeEnter"\
+                            v-on:after-enter="afterEnter"\
+                            >\
+                            <slot></slot>\
+                        </transition>\
+                    `,
+                methods: {
+                    beforeEnter: function (el) {
+                    // ...
+                    },
+                    afterEnter: function (el) {
+                    // ...
+                    }
+                }
+            })
+
+
+            // Vue.component('my-special-transition', {
+            //     functional: true,
+            //     render: function (createElement, context) {
+            //         var data = {
+            //         props: {
+            //             name: 'very-special-transition',
+            //             mode: 'out-in'
+            //         },
+            //         on: {
+            //             beforeEnter: function (el) {
+            //             // ...
+            //             },
+            //             afterEnter: function (el) {
+            //             // ...
+            //             }
+            //         }
+            //         }
+            //         return createElement('transition', data, context.children)
+            //     }
+            // })
+
+
+            new Vue({
+                el: '#transition-components-demo',
+                data: {
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>함수 약어</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+
+        <div id="hook-arguments-example" v-color-swatch="color">test</div>
+
+        <script>
+            Vue.directive('color-swatch', function (el, binding) {
+                console.log(binding.value)
+                el.style.backgroundColor = binding.value
+            })
+            new Vue({
+                el: '#hook-arguments-example',
+                data: {
+                    color: 'black'
+                }
+            })
+        </script>
+    </body>
+</html>

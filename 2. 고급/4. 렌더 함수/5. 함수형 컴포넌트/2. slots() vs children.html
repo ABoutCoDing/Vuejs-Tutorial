@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>함수형 컴포넌트</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+            <my-functional-component>
+                <p slot="foo">
+                    first
+                </p>
+                <p>second</p>
+            </my-functional-component>
+        </div>
+
+        <script>
+            Vue.component('my-functional-component', {
+                render: function (createElement) {
+                    console.log(this.$slots.default)
+                    console.log(this.$slots.foo)
+                    return createElement(
+                        'div',
+                        [
+                            'Some text comes first.',
+                            createElement('h1', 'A headline'),
+                        ]
+                    )
+                }
+            })
+                new Vue({
+                el: "#example-8",
+            });
+        </script>
+    </body>
+</html>

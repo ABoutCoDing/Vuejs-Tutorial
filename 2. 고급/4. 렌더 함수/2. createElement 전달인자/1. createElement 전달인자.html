@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>createElement 전달인자</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+          <anchored-heading :level="1">Hello world!</anchored-heading>
+        </div>
+
+        <script>
+          Vue.component('anchored-heading', {
+            render: function (createElement) {
+              return createElement(
+                'div',
+                [
+                  'Some text comes first.',
+                  createElement('h1', 'A headline'),
+                ]
+              )
+            },
+          })
+          new Vue({
+            el: "#example-8",
+          });
+        </script>
+    </body>
+</html>

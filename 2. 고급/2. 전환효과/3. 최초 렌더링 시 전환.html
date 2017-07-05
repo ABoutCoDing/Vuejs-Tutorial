@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>최초 렌더링 시 전환</title>
+
+        <style>
+            .custom-appear-class {
+            }
+            .custom-appear-to-class {
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+
+        <div id="example">
+            <transition
+                appear
+                appear-class="custom-appear-class"
+                appear-to-class="custom-appear-to-class" 
+                appear-active-class="custom-appear-active-class"
+            >
+                foo
+                <!-- ... -->
+            </transition>
+
+            <transition
+                appear
+                v-on:before-appear="customBeforeAppearHook"
+                v-on:appear="customAppearHook"
+                v-on:after-appear="customAfterAppearHook"
+                v-on:appear-cancelled="customAppearCancelledHook"
+            >
+                bar
+                <!-- ... -->
+            </transition>
+
+        </div>
+        
+        <script>
+            new Vue({
+                el: '#example',
+                methods: {
+                    customBeforeAppearHook: function (el) {
+                    },
+                    customAppearHook: function (el, done) {
+                    },
+                    customAfterAppearHook: function (el, done) {
+                    },
+                    customAppearCancelledHook: function (el, done) {
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>전체 예제</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue"></script>       
+        <div id="example-8">
+          <anchored-heading :level="1">Hello world!</anchored-heading>
+        </div>
+
+        <script>
+          var getChildrenTextContent = function (children) {
+            return children.map(function (node) {
+              return node.children
+                ? getChildrenTextContent(node.children)
+                : node.text
+            }).join('')
+          }
+          Vue.component('anchored-heading', {
+            render: function (createElement) {
+              // kebabCase id를 만듭니다.
+              var headingId = getChildrenTextContent(this.$slots.default)
+                .toLowerCase()
+                .replace(/\W+/g, '-')
+                .replace(/(^\-|\-$)/g, '')
+              return createElement(
+                'h' + this.level,
+                [
+                  createElement('a', {
+                    attrs: {
+                      name: headingId,
+                      href: '#' + headingId
+                    }
+                  }, this.$slots.default)
+                ]
+              )
+            },
+            props: {
+              level: {
+                type: Number,
+                required: true
+              }
+            }
+          })
+          new Vue({
+            el: "#example-8",
+          });
+        </script>
+    </body>
+</html>
