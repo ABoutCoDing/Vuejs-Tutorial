@@ -5,11 +5,48 @@
         <title>기타 #컴포넌트 사이의 순환 참조</title>
     </head>
     <body>
-
         <script src="https://unpkg.com/vue"></script>
         
-        <script>
+        <div id="example">
+            <p>
+                <span>{{ folder.name }}</span>
+                <tree-folder-contents :children="folder.children"/>
+            </p>
+        </div>
 
+        <script>
+            Vue.component("tree-folder-contents", {
+                template: 
+                `
+                    <ul>
+                        <li v-for="child in children">
+                            <tree-folder v-if="child.children" :folder="child"/>
+                            <span v-else>{{ child.name }}</span>
+                        </li>
+                    </ul>
+                `,
+                data: function() {
+                    return {
+                        children: {
+                            child: {
+                                name: {},
+                                children: {}
+                            },
+                        }
+                    }
+                }
+            })
+            Vue.component("tree-folder", {
+                template: `<span>폴더1</span>`
+            })
+            new Vue({
+                el: "#example",
+                data: {
+                    folder: {
+                        name: "폴더이름",
+                    }
+                }
+            })
         </script>
     </body>
 </html>

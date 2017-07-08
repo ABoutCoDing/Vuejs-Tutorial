@@ -9,18 +9,26 @@
 
         <div id="counter-event-example">
             <comp :foo.sync="bar"></comp>
+            <input v-model="bar">
         </div>
         
         <script>
             Vue.component('comp', {
-                template: '<div></div>',
-            })
-            new Vue({
-                el: '#counter-event-example',
+                template: '<button v-on:click="increment">send value</button>',
+                data: function() {
+                    return {"num": 0}
+                },
                 methods: {
-                    bar: function(value) {
+                    increment: function() {
+                        this.$emit('update:foo', this.num += 1)
                     }
                 }
+            })
+            var vm  = new Vue({
+                el: '#counter-event-example',
+                data: {
+                    bar: ""
+                },
             })
         </script>
     </body>

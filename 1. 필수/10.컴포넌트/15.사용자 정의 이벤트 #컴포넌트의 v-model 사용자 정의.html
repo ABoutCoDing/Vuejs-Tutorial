@@ -13,17 +13,23 @@
         
         <script>
             Vue.component('my-checkbox', {
-                template: `<span>{{value}}</span>`,
+                template: `<input type="checkbox" id="jack" v-on:click="test">`,
                 model: {
                     prop: 'checked',
                     event: 'change'
                 },
                 props: {
                     // 다른 목적을 위해 `value` prop를 사용할 수 있습니다.
+                    checked: Boolean,
                     value: String
+                },
+                methods: {
+                    test: function(){
+                        console.log(this.value)
+                    }
                 }
             })
-            new Vue({
+            var vm = new Vue({
                 el: "#example-11",
                 data: {
                     foo: ""
